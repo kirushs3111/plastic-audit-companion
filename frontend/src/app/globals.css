@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* This app uses an explicit light palette throughout (white cards, gray-800
+   text, bg-green-50 sections, etc.) rather than a designed dark theme. We
+   intentionally do NOT follow prefers-color-scheme here - doing so used to
+   flip body's background/text to near-black/near-white while leaving every
+   unstyled form input (which has no explicit bg/text classes) to inherit
+   those colors, producing pale text on a pale input box on dark-mode
+   systems. Fixed values keep every page readable regardless of OS theme. */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Belt-and-suspenders: every text input/textarea/select gets an explicit
+   background and text color so it's never at the mercy of inherited theme
+   variables or a browser's own dark-mode form-control styling. */
+input,
+textarea,
+select {
+  background-color: #ffffff;
+  color: #111827;
+}
